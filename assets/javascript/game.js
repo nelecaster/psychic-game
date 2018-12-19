@@ -3,12 +3,12 @@ var guesses = 9;
 function guessCount() {
     document.getElementById('demo4').innerHTML = guesses;
 }
-  
+
 window.onload = guessCount;
 
 function minusGuess() {
     document.getElementById('demo4').innerHTML = guesses--;
-} 
+}
 
 
 
@@ -26,7 +26,7 @@ var rand = letters[(Math.random() * letters.length) | 0]
 console.log(rand);
 
 function resetRandom() {
-     rand = letters[(Math.random() * letters.length) | 0]
+    rand = letters[(Math.random() * letters.length) | 0]
 }
 
 
@@ -34,14 +34,14 @@ function resetRandom() {
 var alreadyGuessed = [];
 
 // player presses any key, which is compared to the computer's key choice
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
     var playerLetter = event.key.toLowerCase();
     alreadyGuessed.push(playerLetter);
     minusGuess();
     console.log(playerLetter);
     showArray();
     if (playerLetter === rand) {
-        winCount = function() {
+        winCount = function () {
             document.getElementById("demo2").innerHTML = wins++;
         }
         winCount();
@@ -49,7 +49,7 @@ document.onkeyup = function(event) {
         guesses--;
         console.log("worked!");
     } if (alreadyGuessed.length >= 9) {
-        lossCount = function() {
+        lossCount = function () {
             document.getElementById("demo3").innerHTML = losses++;
         }
         lossCount();
@@ -58,12 +58,12 @@ document.onkeyup = function(event) {
         guesses = 9;
         resetRandom();
     }
-    
+
 };
 
 
 
-showArray = function() {
+showArray = function () {
     document.getElementById("demo1").innerHTML = alreadyGuessed;
 }
 
